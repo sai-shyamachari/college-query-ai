@@ -1,0 +1,103 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": [
+          "Hi",
+          "Hello",
+          "How are you?",
+          "Is anyone there?"
+        ],
+        "responses": [
+          "Hello! How can I help you with your placement-related questions?",
+          "Hi there! I'm here to answer your questions about placements at Centurion University."
+        ]
+      },
+      {
+        "tag": "placement_statistics",
+        "patterns": [
+          "What are the placement statistics?",
+          "Tell me about the placements.",
+          "How good are the placements at CUTM?"
+        ],
+        "responses": [
+          "For the 2025 graduate batch, we have a 90% placement success rate with 202 recruiters. The highest CTC offered was 16 LPA and the average CTC was 4.65 lakhs. 39 students received a CTC of more than 7 lakhs."
+        ]
+      },
+      {
+        "tag": "highest_package",
+        "patterns": [
+          "What is the highest package?",
+          "What is the highest CTC?",
+          "Maximum salary offered?"
+        ],
+        "responses": [
+          "The highest CTC offered for the 2025 graduate batch is 16 LPA."
+        ]
+      },
+      {
+        "tag": "average_package",
+        "patterns": [
+          "What is the average package?",
+          "What is the average CTC?",
+          "Average salary offered?"
+        ],
+        "responses": [
+          "The average CTC for the 2025 graduate batch is 4.65 lakhs."
+        ]
+      },
+      {
+        "tag": "top_recruiters",
+        "patterns": [
+          "Who are the top recruiters?",
+          "Which companies visit the campus for placements?",
+          "List of companies."
+        ],
+        "responses": [
+          "We have a network of over 500 recruiters. While the specific list of 'Key Placement Partners' is not disclosed, we have a wide range of companies from various sectors."
+        ]
+      },
+      {
+        "tag": "training_programs",
+        "patterns": [
+          "Do you provide any training for placements?",
+          "What kind of placement training is offered?",
+          "How do you prepare students for placements?"
+        ],
+        "responses": [
+          "Yes, we provide extensive training for our students. This includes skills training, company-specific training, and a Career Development Cell to provide practical knowledge and enhance learning experiences."
+        ]
+      },
+      {
+        "tag": "contact_information",
+        "patterns": [
+          "How can I contact the placement cell?",
+          "What is the contact number?",
+          "What is the address of the placement cell?"
+        ],
+        "responses": [
+          "You can contact the placement cell via our toll-free numbers: 8260077222 or 7735699670. The address is: CENTURION UNIVERSITY OF TECHNOLOGY AND MANAGEMENT (CUTM), HIG-4, Floor 1 and 2, Jaydev Vihar, Opp Pal Heights, Bhubaneswar, Dist: Khurda, Odisha, India."
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": [
+          "Bye",
+          "Goodbye",
+          "See you later"
+        ],
+        "responses": [
+          "Goodbye! Feel free to ask if you have more questions.",
+          "Have a great day!"
+        ]
+      },
+      {
+          "tag": "fallback",
+          "patterns": [],
+          "responses": [
+            "I'm sorry, I don't have information about that. Please try asking another question about our placements.",
+            "I'm not sure how to answer that. Could you ask me something else related to placements?"
+          ]
+      }
+    ]
+  }
