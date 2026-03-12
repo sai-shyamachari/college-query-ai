@@ -1,0 +1,214 @@
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .faq-tile {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    border-radius: 20px;
+    min-height: 180px;
+  }
+  
+  .faq-tile:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  .faq-tile-inner {
+    position: relative;
+    z-index: 2;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+  }
+  
+  .faq-tile:hover .faq-tile-inner {
+    background: rgba(138, 127, 255, 0.1);
+    border-color: rgba(138, 127, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(138, 127, 255, 0.2);
+  }
+  
+  .faq-tile-background {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(138, 127, 255, 0.1), 
+      transparent
+    );
+    transition: left 0.6s ease;
+    z-index: 1;
+  }
+  
+  .faq-tile:hover .faq-tile-background {
+    left: 100%;
+  }
+  
+  .faq-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  .faq-tile:hover .faq-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  }
+  
+  .faq-icon span {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .faq-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(8px);
+    opacity: 0.6;
+    z-index: 1;
+  }
+  
+  .faq-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+  
+  .faq-tile:hover .faq-title {
+    color: var(--primary-purple);
+    transform: translateY(-2px);
+  }
+  
+  .faq-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex-grow: 1;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-tile:hover .faq-description {
+    color: var(--text-primary);
+  }
+  
+  .faq-arrow {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translate(10px, -10px);
+    transition: all 0.3s ease;
+  }
+  
+  .faq-tile:hover .faq-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+    color: var(--primary-purple);
+  }
+  
+  /* Individual tile hover effects */
+  .faq-tile:nth-child(1):hover .faq-tile-inner {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  }
+  
+  .faq-tile:nth-child(2):hover .faq-tile-inner {
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(245, 87, 108, 0.1));
+  }
+  
+  .faq-tile:nth-child(3):hover .faq-tile-inner {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+  }
+  
+  .faq-tile:nth-child(4):hover .faq-tile-inner {
+    background: linear-gradient(135deg, rgba(67, 233, 123, 0.1), rgba(56, 249, 215, 0.1));
+  }
+  
+  .faq-tile:nth-child(5):hover .faq-tile-inner {
+    background: linear-gradient(135deg, rgba(250, 112, 154, 0.1), rgba(254, 225, 64, 0.1));
+  }
+  
+  .faq-tile:nth-child(6):hover .faq-tile-inner {
+    background: linear-gradient(135deg, rgba(168, 237, 234, 0.1), rgba(254, 214, 227, 0.1));
+  }
+  
+  @media (max-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+  
+    .faq-tile-inner {
+      padding: 1.5rem;
+    }
+  
+    .faq-icon {
+      width: 56px;
+      height: 56px;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+  
+    .faq-title {
+      font-size: 1.2rem;
+    }
+  
+    .faq-description {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .faq-tile-inner {
+      padding: 1.25rem;
+    }
+  }

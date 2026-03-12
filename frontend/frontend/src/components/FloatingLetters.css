@@ -1,0 +1,147 @@
+.floating-letters-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .floating-letter {
+    position: absolute;
+    font-weight: 300;
+    color: var(--primary-purple);
+    animation: floatUp linear infinite;
+    user-select: none;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0 0 10px rgba(138, 127, 255, 0.3);
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) rotate(0deg) scale(0.5);
+      opacity: 0;
+    }
+    
+    5% {
+      opacity: 1;
+      transform: translateY(95vh) rotate(18deg) scale(0.7);
+    }
+    
+    25% {
+      transform: translateY(75vh) rotate(90deg) scale(1);
+    }
+    
+    50% {
+      transform: translateY(50vh) rotate(180deg) scale(0.8);
+    }
+    
+    75% {
+      transform: translateY(25vh) rotate(270deg) scale(1.1);
+    }
+    
+    95% {
+      opacity: 1;
+      transform: translateY(5vh) rotate(342deg) scale(0.6);
+    }
+    
+    100% {
+      transform: translateY(-10vh) rotate(360deg) scale(0.3);
+      opacity: 0;
+    }
+  }
+  
+  /* Different animation variations */
+  .floating-letter:nth-child(odd) {
+    animation-name: floatUpWave;
+  }
+  
+  .floating-letter:nth-child(3n) {
+    animation-name: floatUpSpiral;
+  }
+  
+  @keyframes floatUpWave {
+    0% {
+      transform: translateY(100vh) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    
+    5% {
+      opacity: 1;
+    }
+    
+    25% {
+      transform: translateY(75vh) translateX(30px) rotate(90deg);
+    }
+    
+    50% {
+      transform: translateY(50vh) translateX(-20px) rotate(180deg);
+    }
+    
+    75% {
+      transform: translateY(25vh) translateX(40px) rotate(270deg);
+    }
+    
+    95% {
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translateY(-10vh) translateX(0) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes floatUpSpiral {
+    0% {
+      transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.3);
+      opacity: 0;
+    }
+    
+    5% {
+      opacity: 1;
+    }
+    
+    25% {
+      transform: translateY(75vh) translateX(50px) rotate(180deg) scale(1.2);
+    }
+    
+    50% {
+      transform: translateY(50vh) translateX(-30px) rotate(360deg) scale(0.7);
+    }
+    
+    75% {
+      transform: translateY(25vh) translateX(60px) rotate(540deg) scale(1.1);
+    }
+    
+    95% {
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translateY(-10vh) translateX(0) rotate(720deg) scale(0.4);
+      opacity: 0;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .floating-letter {
+      font-size: 14px !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .floating-letter {
+      font-size: 12px !important;
+    }
+  }
+  
+  /* Performance optimizations */
+  .floating-letter {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }

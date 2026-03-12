@@ -1,0 +1,448 @@
+/* Assistant Avatar Styles */
+.assistant-avatar {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1);
+    user-select: none;
+    outline: none;
+  }
+  
+  .assistant-avatar:hover,
+  .assistant-avatar:focus {
+    transform: scale(1.1);
+  }
+  
+  .assistant-avatar.active {
+    transform: scale(0.9);
+  }
+  
+  .assistant-avatar.hovered {
+    transform: scale(1.15);
+  }
+  
+  /* Avatar Background */
+  .avatar-background {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .avatar-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+    border-radius: 50%;
+    animation: rotate 8s linear infinite;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .avatar-pulse {
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+  
+  /* Avatar Content */
+  .avatar-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    margin: 2px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  [data-theme="dark"] .avatar-content {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+  }
+  
+  .bot-icon {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .assistant-avatar.active .avatar-content {
+    background: #ef4444;
+    color: white;
+  }
+  
+  .assistant-avatar:hover .bot-icon {
+    animation: bounce-gentle 0.6s ease;
+  }
+  
+  @keyframes bounce-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+  
+  /* Status Indicator */
+  .status-indicator {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  [data-theme="dark"] .status-indicator {
+    background: var(--bg-primary);
+  }
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+  
+  @keyframes pulse-dot {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+  }
+  
+  /* Floating Particles */
+  .floating-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .assistant-avatar:hover .floating-particles {
+    opacity: 1;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    animation: float-particle 3s infinite ease-in-out;
+  }
+  
+  .particle-1 {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+    background: var(--primary-color);
+  }
+  
+  .particle-2 {
+    top: 20%;
+    right: 15%;
+    animation-delay: 0.5s;
+    background: var(--secondary-color);
+  }
+  
+  .particle-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 1s;
+    background: var(--accent-color);
+  }
+  
+  .particle-4 {
+    bottom: 15%;
+    right: 20%;
+    animation-delay: 1.5s;
+    background: var(--success-color);
+  }
+  
+  @keyframes float-particle {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(-20px) scale(1.2);
+      opacity: 1;
+    }
+  }
+  
+  /* Tooltip */
+  .avatar-tooltip {
+    position: fixed;
+    bottom: 5.5rem;
+    right: 1rem;
+    z-index: 998;
+    animation: fadeInUp 0.3s ease;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .tooltip-content {
+    position: relative;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 0.75rem 1rem;
+    box-shadow: var(--shadow-lg);
+    max-width: 200px;
+  }
+  
+  .tooltip-text {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  .tooltip-arrow {
+    position: absolute;
+    bottom: -8px;
+    right: 2rem;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--bg-primary);
+  }
+  
+  .tooltip-arrow::before {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--border-color);
+  }
+  
+  /* Notification Badge */
+  .notification-badge {
+    position: fixed;
+    bottom: 4.5rem;
+    right: 1.5rem;
+    z-index: 997;
+    animation: bounceIn 0.5s ease;
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .badge-content {
+    background: linear-gradient(135deg, var(--warning-color) 0%, #f59e0b 100%);
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    animation: bounce-badge 2s infinite;
+  }
+  
+  @keyframes bounce-badge {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+  
+  .badge-icon {
+    font-size: 0.8rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .assistant-avatar {
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 56px;
+      height: 56px;
+    }
+  
+    .avatar-tooltip {
+      bottom: 5rem;
+      right: 0.5rem;
+    }
+  
+    .tooltip-content {
+      max-width: 180px;
+    }
+  
+    .tooltip-text {
+      font-size: 0.8rem;
+    }
+  
+    .notification-badge {
+      bottom: 4rem;
+      right: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .assistant-avatar {
+      bottom: 1rem;
+      right: 1rem;
+      width: 52px;
+      height: 52px;
+    }
+  
+    .avatar-content svg {
+      width: 24px;
+      height: 24px;
+    }
+  
+    .bot-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+  
+    .avatar-tooltip {
+      bottom: 4.5rem;
+      right: 0.25rem;
+    }
+  
+    .tooltip-content {
+      max-width: 160px;
+      padding: 0.6rem 0.8rem;
+    }
+  
+    .tooltip-text {
+      font-size: 0.75rem;
+    }
+  
+    .notification-badge {
+      bottom: 3.5rem;
+      right: 0.5rem;
+    }
+  
+    .badge-content {
+      width: 24px;
+      height: 24px;
+    }
+  
+    .badge-icon {
+      font-size: 0.7rem;
+    }
+  }
+  
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .assistant-avatar,
+    .avatar-gradient,
+    .avatar-pulse,
+    .status-dot,
+    .particle,
+    .badge-content,
+    .bot-icon {
+      animation: none;
+      transition: none;
+    }
+  
+    .avatar-tooltip {
+      animation: none;
+    }
+  
+    .notification-badge {
+      animation: none;
+    }
+  }
+  
+  /* Focus styles for accessibility */
+  .assistant-avatar:focus {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .avatar-content {
+      border: 2px solid var(--text-primary);
+    }
+  
+    .status-indicator {
+      border: 1px solid var(--text-primary);
+    }
+  
+    .tooltip-content {
+      border: 2px solid var(--text-primary);
+    }
+  }
